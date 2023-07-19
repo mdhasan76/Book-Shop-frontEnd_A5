@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+const AddBook = () => {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
   const handleRegister = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    console.log(email, password, name);
+    const publishDate = new Date();
+    console.log(title, genre, author, publishDate);
   };
 
   return (
@@ -16,52 +16,43 @@ const Register = () => {
         <form onSubmit={handleRegister} className="card-body">
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Full Name</span>
+              <span className="label-text">Title</span>
             </label>
             <input
               type="text"
-              placeholder="name"
+              placeholder="book title"
               className="input input-bordered"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">Author</span>
             </label>
             <input
-              type="email"
-              placeholder="email"
+              type="text"
+              placeholder="author"
               className="input input-bordered"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setAuthor(e.target.value)}
               required
             />
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Password</span>
+              <span className="label-text">Genre</span>
             </label>
             <input
-              type="password"
-              placeholder="password"
+              type="text"
+              placeholder="Genre"
               className="input input-bordered"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setGenre(e.target.value)}
               required
             />
-            <label className="label">
-              <p className="text-sm">
-                already have account?
-                <Link to={"/login"} className="label-text-alt link link-hover">
-                  {" "}
-                  login{" "}
-                </Link>
-              </p>
-            </label>
           </div>
           <div className="form-control mt-3">
             <button className="mt-2 px-3 py-2 bg-slate-300 text-[#003a6c] hover:bg-[#0b3962] hover:text-white duration-500   font-semibold">
-              Register
+              Submit
             </button>
           </div>
         </form>
@@ -70,4 +61,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AddBook;

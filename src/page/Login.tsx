@@ -1,23 +1,27 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const handleLogin = () => {
-    console.log("Login clicked");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(email, password);
   };
 
   return (
     <div className="hero bg-base-200">
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100  my-10">
-        <form onSubmit={handleLogin} className="card-body mb-0">
+        <form onSubmit={(e) => handleLogin(e)} className="card-body mb-0">
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
             </label>
             <input
               type="email"
-              name="email"
               placeholder="email"
               className="input input-bordered"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -27,9 +31,9 @@ const Login = () => {
             </label>
             <input
               type="password"
-              name="password"
               placeholder="password"
               className="input input-bordered"
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <label className="label">

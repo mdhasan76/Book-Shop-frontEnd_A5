@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-  const user = {
-    email: "hello",
-  };
+  const user = null;
 
   const userLogOut = () => {
     console.log("logout");
   };
   return (
-    <section className="sticky top-0 z-30 font-semibold">
-      <div className="navbar  bg-[#1a4e7b] text-white">
+    <section className="sticky top-0 z-30 font-semibold bg-[#1a4e7b]">
+      <div className="navbar text-white max-w-7xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown text-black">
             <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
@@ -37,16 +35,10 @@ const Nav = () => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={"/hotels"}>Hotels</Link>
+                <Link to={"/bookes"}>All Bookes</Link>
               </li>
               <li>
-                <Link to={"/services"}>Services</Link>
-              </li>
-              <li>
-                <Link to={"/blog"}>Blog</Link>
-              </li>
-              <li>
-                <a href={"/contact"}>Contact</a>
+                <Link to={"/add-book"}>Add Book</Link>
               </li>
               {user && (
                 <>
@@ -60,7 +52,7 @@ const Nav = () => {
               )}
             </ul>
           </div>
-          <p className="btn btn-ghost normal-case text-xl">Crazy Travel</p>
+          <p className="btn btn-ghost normal-case text-xl">Book Shop</p>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -68,16 +60,10 @@ const Nav = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link to={"/hotels"}>Hotels</Link>
+              <Link to={"/bookes"}>All Books</Link>
             </li>
             <li>
-              <Link to={"/services"}>Services</Link>
-            </li>
-            <li>
-              <Link to={"/blog"}>Blog</Link>
-            </li>
-            <li>
-              <Link to={"/contact"}>Contact</Link>
+              <Link to={"/add-book"}>Add Book</Link>
             </li>
             {user && (
               <>
@@ -94,13 +80,6 @@ const Nav = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              <img
-                className="h-10 w-10 rounded-full"
-                src={
-                  "https://www.freepik.com/free-photo/muslim-man-using-misbaha-keep-track-counting-tasbih_2770931.htm#query=muslim%20man&position=7&from_view=keyword&track=ais"
-                }
-                alt=""
-              />
               <button
                 onClick={userLogOut}
                 className="bg-cyan-600 py-2 px-4 rounded mr-2 hover:bg-rose-600 duration-300"
