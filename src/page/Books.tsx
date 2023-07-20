@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react";
+import { IBook } from "../types/globalTypes";
+import { Link } from "react-router-dom";
+
 const Books = () => {
+  const [books, setBooks] = useState<IBook[]>([]);
+
+  // ! temp code
+  useEffect(() => {
+    void fetch("books.json")
+      .then((res) => res.json())
+      .then((data: IBook[]) => setBooks(data));
+  }, []);
+  // ! temp code end
+
   return (
     <div className="overflow-x-auto max-w-5xl mx-auto my-10">
       <table className="table">
@@ -10,33 +24,27 @@ const Books = () => {
             <th>Title</th>
             <th>Genre</th>
             <th>Published Date</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Cultarul</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-          </tr>
-          {/* row 2 */}
-          <tr className="hover">
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Game</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-          </tr>
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Science</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-          </tr>
+          {books?.map((book: IBook, i: number) => (
+            <tr className="hover">
+              <th>{i + 1}</th>
+              <td>{book.author}</td>
+              <td>{book.title}</td>
+              <td>{book.genre}</td>
+              <td>{book.publicationDate}</td>
+              <td>
+                <Link
+                  to={`/book/${i}`}
+                  className="cursor-pointer bg-gray-200 px-3 py-2 rounded"
+                >
+                  details
+                </Link>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

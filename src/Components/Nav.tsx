@@ -35,10 +35,10 @@ const Nav = () => {
                 <Link to={"/"}>Home</Link>
               </li>
               <li>
-                <Link to={"/bookes"}>All Bookes</Link>
+                <Link to={"/books"}>All Bookes</Link>
               </li>
               <li>
-                <Link to={"/add-book"}>Add Book</Link>
+                <Link to={"/add-new-book"}>Add Book</Link>
               </li>
               {user && (
                 <>
@@ -60,10 +60,10 @@ const Nav = () => {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link to={"/bookes"}>All Books</Link>
+              <Link to={"/books"}>All Books</Link>
             </li>
             <li>
-              <Link to={"/add-book"}>Add Book</Link>
+              <Link to={"/add-new-book"}>Add Book</Link>
             </li>
             {user && (
               <>

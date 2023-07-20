@@ -19,11 +19,11 @@ export const router = createBrowserRouter([
         element: <Books />,
       },
       {
-        path: "books/:id",
+        path: "book/:id",
         element: <BookesDetails />,
       },
       {
-        path: "add-book",
+        path: "add-new-book",
         element: <AddBook />,
       },
       {

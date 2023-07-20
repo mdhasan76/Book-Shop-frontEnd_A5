@@ -4,10 +4,10 @@ const AddBook = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [genre, setGenre] = useState("");
+  const [publishedDate, setpublishedDate] = useState("");
   const handleRegister = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    const publishDate = new Date();
-    console.log(title, genre, author, publishDate);
+    console.log(title, genre, author, publishedDate);
   };
 
   return (
@@ -47,6 +47,18 @@ const AddBook = () => {
               placeholder="Genre"
               className="input input-bordered"
               onChange={(e) => setGenre(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Published Date</span>
+            </label>
+            <input
+              type="text"
+              placeholder="June 8, 1949"
+              className="input input-bordered"
+              onChange={(e) => setpublishedDate(e.target.value)}
               required
             />
           </div>
