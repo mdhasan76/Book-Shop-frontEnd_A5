@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { IBook } from "../types/globalTypes";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../redux/hook";
 
 const Books = () => {
   const [books, setBooks] = useState<IBook[]>([]);
+  const { data } = useAppSelector((state) => state.book);
+  console.log(data, "Book state");
 
   // ! temp code
   useEffect(() => {
