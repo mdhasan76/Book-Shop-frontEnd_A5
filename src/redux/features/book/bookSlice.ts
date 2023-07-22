@@ -10,7 +10,7 @@ const initState: BookInitState = {
 };
 
 const bookSlice = createSlice({
-  name: "books",
+  name: "book",
   initialState: initState,
   reducers: {
     test: (state) => {

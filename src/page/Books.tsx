@@ -5,7 +5,7 @@ import { useAppSelector } from "../redux/hook";
 
 const Books = () => {
   const [books, setBooks] = useState<IBook[]>([]);
-  const { data } = useAppSelector((state) => state.book);
+  const data = useAppSelector((state) => state.book);
   console.log(data, "Book state");
 
   // ! temp code
